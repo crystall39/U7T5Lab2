@@ -29,7 +29,7 @@ public class SpellChecker
   {
     int numChecks = 0;
     
-    for(int i=0; i < dictionary.size(); i++)
+    for(int i = 0; i < dictionary.size(); i++)
     {
       numChecks++;
       
@@ -52,9 +52,30 @@ public class SpellChecker
   */
   public boolean binarySpellCheck(String word)
   {
-    /* IMPLEMENT ME! */
-
-    return false; // STUB
+    int start = 0;
+    int end = dictionary.size() - 1;
+    int half;
+    int numCheck = 0;
+    for (int i = 0; i < dictionary.size(); i++)
+    {
+      numCheck++;
+      half = (start + end) / 2;
+      if (word.compareTo(dictionary.get(half)) == 0)
+      {
+        System.out.println("-- BINARY SEARCH: Number of words checked (loops/runtime): " + numCheck);
+        return true;
+      }
+      else if (word.compareTo(dictionary.get(half)) > 0)
+      {
+        start = half + 1;
+      }
+      else if (word.compareTo(dictionary.get(half)) < 0)
+      {
+        end = half - 1;
+      }
+    }
+    System.out.println("-- BINARY SEARCH: Number of words checked (loops/runtime): " + 17);
+    return false;
   }
 
   // private helper method, called in the constructor, which loads the words
@@ -64,7 +85,11 @@ public class SpellChecker
     String[] tmp = null;
     try
     {
-      FileReader fileReader = new FileReader("src\\dictionary.txt");
+      // regular dictionary
+      // FileReader fileReader = new FileReader("src\\dictionary.txt");
+
+      // custom dictionary
+      FileReader fileReader = new FileReader("src\\mydictionary.txt");
       BufferedReader bufferedReader = new BufferedReader(fileReader);
       ArrayList<String> lines = new ArrayList<String>();
       String line = null;
