@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class BinarySearchRunner
 {
   public static void main(String[] args)
@@ -93,5 +95,21 @@ public class BinarySearchRunner
     System.out.println(index);
     System.out.println("----------------------------------------------------");
 */
+
+    // Exploration Extra Credit
+    int[] array1 = {1, 3, 46, 233, 590, 632, 840, 999};
+    System.out.println(Arrays.binarySearch(array1, 3));
+    System.out.println(Arrays.binarySearch(array1, 999));
+    System.out.println(Arrays.binarySearch(array1, 590));
+    System.out.println(Arrays.binarySearch(array1, 2));
+
+    System.out.println();
+
+    String[] array2 = {"apple", "ball", "cat", "dog", "elephant", "fun", "grape", "happy"};
+    System.out.println(Arrays.binarySearch(array2, "apple"));
+    System.out.println(Arrays.binarySearch(array2, "happy"));
+    System.out.println(Arrays.binarySearch(array2, "elephant"));
+    System.out.println(Arrays.binarySearch(array2, "important"));
+
   }
 }
